@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid width="100%">
+    <label text="User" verticalAlign="center" />
+    <dropdown id="user" width="100%" />
+    
+    <label text="Password:" verticalAlign="center" />
+    <textfield id="password" password="true" width="100%" />
+    
+    <label />
+    <label text="Note: the password for the selected user will stay in memory while the app is open, it will never be saved to disk" width="100%" />
+    
+    <label text="Version:" verticalAlign="center" />
+    <textfield id="version" width="100%" />
+    
+    <label text="Notes:" verticalAlign="top" />
+    <textarea id="notes" width="100%" />
+    
+    <label text="Options:"/>
+    <vbox width="100%">
+        <checkbox id="clean" text="Clean up zip file when complete" />
+        <checkbox id="submit" text="Automatically submit to haxelib" />
+        <checkbox id="commit" text="Commit and push haxelib.json" />
+    </vbox>
+</grid>

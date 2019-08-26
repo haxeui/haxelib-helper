@@ -1,0 +1,13 @@
+<vbox width="100%" height="100%">
+    <menubar id="mainMenu" width="100%">
+        <menu text="File">
+            <menu-item text="Add Project" id="addProject" />
+        </menu>
+    </menubar>
+    
+    <vbox style="padding:5px;" width="100%" height="100%">
+        <tabview id="mainTabs" width="100%" height="100%">
+            
+        </tabview>
+    </vbox>
+</vbox>

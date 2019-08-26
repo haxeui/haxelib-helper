@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid width="100%">
+    <label text="Inclusions:" width="50%" />
+    <label text="Exclusions:" width="50%" />
+    
+    <textarea id="inclusionsList" width="50%" />
+    <textarea id="exclusionsList" width="50%" />
+</grid>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%" style="padding: 5px;">
+    <hbox width="100%">
+        <label id="releaseVersion" width="100%" />
+        <label id="releaseDate" />
+        <label id="releaseTime" />
+    </hbox>        
+    <label id="releaseNotes" width="100%" />
+</vbox>
