@@ -16,9 +16,14 @@ class NewReleaseDialog extends Dialog {
     
     public function new() {
         super();
+        width = 400;
         title = "Create New Release";
         buttons = DialogButton.CANCEL | DialogButton.OK;
-        addClass("custom-dialog-footer");
+        #if haxeui_hxwidgets
+        if (new hx.widgets.PlatformInfo().isWindows == true) {
+            addClass("custom-dialog-footer");
+        }
+        #end
     }
     
     public function populateUserInfo(project:Project) {

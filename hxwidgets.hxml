@@ -5,7 +5,6 @@
 -lib haxeui-hxwidgets
 -lib hxWidgets
 -lib hscript
--lib systools
 
 -D ABI=-MD
 -D WXSTATIC

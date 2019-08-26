@@ -11,7 +11,7 @@ class ProcessHelper {
         }
         
         trace("executing: " + cmd + " in folder: " + cwd);
-        var p = new Process(cmd, null, false);
+        var p = new Process(cmd, null);
         var stdout:String = p.stdout.readAll().toString();
         var stderr:String = p.stderr.readAll().toString();
         if (stderr != null) {

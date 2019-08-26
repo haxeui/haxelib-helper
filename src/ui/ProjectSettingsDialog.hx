@@ -9,7 +9,11 @@ class ProjectSettingsDialog extends Dialog {
     public function new() {
         super();
         width = 400;
-        addClass("custom-dialog-footer");
         buttons = DialogButton.CLOSE | DialogButton.SAVE;
+        #if haxeui_hxwidgets
+        if (new hx.widgets.PlatformInfo().isWindows == true) {
+            addClass("custom-dialog-footer");
+        }
+        #end
     }
 }

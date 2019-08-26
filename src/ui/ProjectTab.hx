@@ -113,6 +113,8 @@ class ProjectTab extends Box {
             projectReleases.addComponent(item);
             if (n % 2 != 0) {
                 item.backgroundColor = 0xEEEEEE;
+            } else {
+                item.backgroundColor = 0xFFFFFF;
             }
             n++;
         }
