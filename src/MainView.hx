@@ -1,8 +1,10 @@
 package;
 
 import haxe.ui.containers.Box;
+import haxe.ui.containers.dialogs.Dialog.DialogEvent;
 import haxe.ui.containers.menus.Menu.MenuEvent;
 import projects.Project;
+import ui.MultiSubmitDialog;
 import ui.ProjectTab;
 
 @:build(haxe.ui.macros.ComponentMacros.build("assets/main.xml"))
@@ -27,6 +29,18 @@ class MainView extends Box {
                         DialogHelper.message("Add Project", e, true);
                     }
                 }
+            case "submitMultiple":
+                var multiSubmitDialog = new MultiSubmitDialog();
+                multiSubmitDialog.onDialogClosed = function(e:DialogEvent) {
+                    if (e.button == "Submit Multiple") {
+                        var submitInfo:MultiSubmitInfo = multiSubmitDialog.submitInfo;
+                        for (item in submitInfo.items) {
+                            var project = AppData.instance.findProject(item.projectId);
+                            ReleaseHelper.performRelease(project, item.version, item.notes, submitInfo.user, submitInfo.password, submitInfo.commit, submitInfo.submit, submitInfo.clean);
+                        }
+                    }
+                }
+                multiSubmitDialog.show();
         }
     }
     

@@ -6,9 +6,22 @@ import sys.FileSystem;
 import sys.io.File;
 
 class ReleaseHelper {
+    public static function performRelease(project:Project, version:String, notes:String, user:String, password:String, autoCommit:Bool = false, autoSubmit:Bool = false, cleanUp:Bool = false) {
+        ReleaseHelper.packageRelease(project, version, notes);
+        if (autoCommit == true) {
+            GitHelper.commitAndPush(project, "haxelib.json", "haxelib");
+        }
+        if (autoSubmit == true) {
+            ReleaseHelper.submit(project, user, password);
+        }
+        if (cleanUp == true) {
+            FileSystem.deleteFile(project.folder + "/" + ReleaseHelper.zipFilename(project));
+        }
+    }
+    
     public static function packageRelease(project:Project, version:String, notes:String) {
-        var inclusions = project.inclusions.split(",");
-        var exclusions = project.exclusions.split(",");
+        var inclusions = split(project.inclusions, ",");
+        var exclusions = split(project.exclusions, ",");
         
         var filename = zipFilename(project);
         if (FileSystem.exists(project.folder + "/" + filename)) {
@@ -24,6 +37,7 @@ class ReleaseHelper {
             cmd.push("-r");
         }
         
+        trace(">>>>>>>>>>>>>>>>>>>> " + exclusions.length);
         if (exclusions.length > 0) {
             for (e in exclusions) {
                 cmd.push("-xr!" + e);
@@ -53,5 +67,19 @@ class ReleaseHelper {
     
     public static function zipFilename(project:Project) {
         return project.id + "-haxelib-release.zip";
+    }
+    
+    private static function split(s:String, delim:String):Array<String> {
+        var a = [];
+        var p = s.split(delim);
+        for (i in p) {
+            i = StringTools.trim(i);
+            if (i.length == 0) {
+                continue;
+            }
+            
+            a.push(i);
+        }
+        return a;
     }
 }

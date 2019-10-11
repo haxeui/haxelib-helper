@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hbox width="100%">
+    <dropdown id="projectName" width="200" />
+    <textfield id="projectVersion" width="100" />
+    <textfield id="projectNotes" width="100%" />
+</hbox>

@@ -2,6 +2,7 @@
     <menubar id="mainMenu" width="100%">
         <menu text="File">
             <menu-item text="Add Project" id="addProject" />
+            <menu-item text="Submit Multiple" id="submitMultiple" />
         </menu>
     </menubar>
     

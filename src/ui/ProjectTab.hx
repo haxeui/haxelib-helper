@@ -43,6 +43,7 @@ class ProjectTab extends Box {
                     DialogHelper.message("No release notes", "You must enter notes for the release", true);
                     return;
                 }
+                /*
                 ReleaseHelper.packageRelease(_project, version, notes);
                 if (dialog.autoCommit == true) {
                     GitHelper.commitAndPush(_project, "haxelib.json", "haxelib");
@@ -53,6 +54,8 @@ class ProjectTab extends Box {
                 if (dialog.cleanUp == true) {
                     FileSystem.deleteFile(_project.folder + "/" + ReleaseHelper.zipFilename(_project));
                 }
+                */
+                ReleaseHelper.performRelease(_project, version, notes, dialog.releaseUser, dialog.releasePassword, dialog.autoCommit, dialog.autoSubmit, dialog.cleanUp);
                 
                 _project.cleanUpAfterRelease = dialog.cleanUp;
                 _project.automaticallySubmitToHaxelib = dialog.autoSubmit;
