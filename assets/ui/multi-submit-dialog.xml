@@ -38,6 +38,5 @@
             </vbox>
         </scrollview>
     </vbox>    
-    <button id="test" text="Test" />
     <button id="addProject" text="Add Project" horizontalAlign="right" />
 </vbox>
